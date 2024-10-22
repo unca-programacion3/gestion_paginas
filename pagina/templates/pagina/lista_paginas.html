@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+    <h1>Lista de paginas</h1>
+
+    <ul>
+    {% for pagina in paginas %}
+        <li>Titulo: {{ pagina.titulo }} - Secciones:
+        <ul>
+            {% for seccion in pagina.secciones.all %}
+                <li>{{ seccion.titulo}} - Tipo: {{ seccion.get_tipo_seccion_display}}</li>
+            {% endfor %}
+        </ul>
+        </li>
+
+    {% endfor %}
+    </ul>
+{% endblock %}
